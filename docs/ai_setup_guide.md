@@ -72,15 +72,19 @@ In der ChatGPT Desktop App für Mac kann ChatGPT über die integrierte Entwickle
 
 ## Teil 3: Lokaler Projektordner auf deinem Mac & Schneller Sync
 
-Dein lokaler Projektordner liegt unter:
+Dein Projektordner ist direkt verknüpft auf deinem **Desktop**:
 ```text
-/Users/Paul/.gemini/antigravity/scratch/Real-Life-Decision-Platform
+/Users/Paul/Desktop/Real-Life-Decision-Platform
+# bzw. im Terminal:
+cd ~/Desktop/Real-Life-Decision-Platform
 ```
+*(Dieser Ordner ist eine direkte Verlinkung auf das Repository in `/Users/Paul/.gemini/antigravity/scratch/Real-Life-Decision-Platform`. Alle Änderungen, die ChatGPT oder du auf dem Desktop machst, sind sofort im Git-Repository aktiv!)*
 
 ### Der 1-Klick-Sync-Befehl (`scripts/sync.sh`)
 Wenn du oder eine der KIs Dateien im Ordner geändert hat, musst du dir keine komplizierten Git-Befehle merken. Führe im Projektordner einfach aus:
 
 ```bash
+cd ~/Desktop/Real-Life-Decision-Platform
 ./scripts/sync.sh "feat: neue Entscheidungsmatrix hinzugefügt"
 ```
 

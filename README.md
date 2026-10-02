@@ -37,10 +37,11 @@ Dieses Repository dient als **zentraler, geteilter Projektordner** für Claude u
 
 ## 🚀 Schnellstart
 
-### 1. Repository klonen / öffnen
+### 1. Repository auf dem Desktop öffnen
 ```bash
-cd /Users/Paul/.gemini/antigravity/scratch/Real-Life-Decision-Platform
+cd ~/Desktop/Real-Life-Decision-Platform
 ```
+*(Auf deinem Desktop liegt bereits die direkte Verlinkung `Real-Life-Decision-Platform`)*
 
 ### 2. Projekt in Claude & ChatGPT einbinden
 Folge der Kurzanleitung in [`docs/ai_setup_guide.md`](./docs/ai_setup_guide.md):
