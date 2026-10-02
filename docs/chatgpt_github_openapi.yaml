@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: GitHub Repository API for ChatGPT
+  description: OpenAPI Action allowing ChatGPT to read, create, and update files in Paulus78/Real-Life-Decision-Platform.
+  version: 1.0.0
+servers:
+  - url: https://api.github.com
+paths:
+  /repos/Paulus78/Real-Life-Decision-Platform/contents/{path}:
+    get:
+      operationId: getFileContent
+      summary: Get file content or directory listing from repository
+      parameters:
+        - name: path
+          in: path
+          required: true
+          description: The path to the file or directory in the repository
+          schema:
+            type: string
+        - name: ref
+          in: query
+          required: false
+          description: The name of the commit/branch/tag. Default is main.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File or directory contents returned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      operationId: createOrUpdateFile
+      summary: Create or update a file in the repository (direct commit)
+      parameters:
+        - name: path
+          in: path
+          required: true
+          description: The path to the file to create or update
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - message
+                - content
+              properties:
+                message:
+                  type: string
+                  description: The commit message
+                content:
+                  type: string
+                  description: Base64-encoded file content
+                sha:
+                  type: string
+                  description: The blob SHA of the file being replaced (required if updating an existing file)
+                branch:
+                  type: string
+                  description: The branch name (defaults to main)
+      responses:
+        '200':
+          description: File updated successfully
+        '201':
+          description: File created successfully
+
+  /repos/Paulus78/Real-Life-Decision-Platform/pulls:
+    post:
+      operationId: createPullRequest
+      summary: Create a new pull request in the repository
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - title
+                - head
+                - base
+              properties:
+                title:
+                  type: string
+                  description: Title of the pull request
+                body:
+                  type: string
+                  description: Description / markdown body of the pull request
+                head:
+                  type: string
+                  description: The branch where changes are implemented
+                base:
+                  type: string
+                  description: The branch you want to merge into (e.g. main)
+      responses:
+        '201':
+          description: Pull request created successfully

@@ -1,0 +1,21 @@
+{
+  "name": "real-life-decision-platform",
+  "version": "0.1.0",
+  "description": "Multi-Criteria Decision Analysis (MCDA) platform co-developed with Claude & ChatGPT",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "node -e 'console.log(\"Tests ready. Run npx ts-node tests/example_decision.ts\")'",
+    "sync": "./scripts/sync.sh"
+  },
+  "keywords": [
+    "decision-making",
+    "mcda",
+    "ahp",
+    "topsis",
+    "claude",
+    "chatgpt"
+  ],
+  "author": "Paulus78",
+  "license": "MIT"
+}
